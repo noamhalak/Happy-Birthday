@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="he">
   <head>
-    <title>Birthday Greeting Card</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>חלל החיצון</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="card">
-      <h1>Happy Birthday!</h1>
-      <div class="cake">
-        <div id="candle"></div>
+    <header>
+      <h1>קפיצה לחלל החיצון</h1>
+    </header>
+    <section class="content">
+      <p>ברוכים הבאים לאתר המעצבן שלנו שמתמקד בחלל החיצון! תהנו מההרפתקה!</p>
+      <div id="spaceship">
+        <div id="body"></div>
+        <div id="window"></div>
+        <div id="fire" class="animation"></div>
       </div>
-    </div>
+    </section>
 
     <script src="script.js"></script>
   </body>
