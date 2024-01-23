@@ -1,32 +1,63 @@
-.card {
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #041c2c;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
     text-align: center;
-    padding: 20px;
-    background-color: #e3e3e3;
-    border-radius: 10px;
-    width: 300px;
-    margin: 0 auto;
-  }
-  
-  .cake {
+}
+
+.content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#spaceship {
     position: relative;
     width: 100px;
-    height: 150px;
-    margin: 20px auto;
-    background-color: #fde6cc;
+    height: 120px;
+}
+
+#body {
+    background-color: #8e8e8e;
+    width: 80px;
+    height: 100px;
     border-radius: 10px;
-  }
-  
-  #candle {
+    margin: 10px auto;
+}
+
+#window {
+    background-color: #67c7eb;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+#fire {
+    background-color: #ff6a00;
+    width: 20px;
+    height: 40px;
     position: absolute;
-    bottom: 95px;
-    left: 45px;
-    width: 10px;
-    height: 50px;
-    background-color: #ffcd00;
-    border-radius: 5px;
-  }
-  
-  .candle-off {
-    background-color: #aaa;
-  }
-  
+    bottom: -30px;
+    left: 40px;
+    border-radius: 10px;
+    display: none;
+}
+
+@keyframes burn {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.animation {
+    animation: burn 0.5s infinite;
+}
