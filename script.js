@@ -1,41 +1,42 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const candle = document.getElementById('candle');
-
+window.addEventListener('DOMContentLoaded', function() {
+    var candle = document.getElementById('candle');
+    var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    var analyzer = audioContext.createAnalyser();
+    var microphone;
+  
     navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(function (stream) {
-            const audioContext = new AudioContext();
-            const analyser = audioContext.createAnalyser();
-            const microphone = audioContext.createMediaStreamSource(stream);
-            
-            microphone.connect(analyser);
-            
-            analyser.fftSize = 256;
-            
-            const bufferLength = analyser.frequencyBinCount;
-            const dataArray = new Uint8Array(bufferLength);
-
-            analyser.getByteFrequencyData(dataArray);
-
-            const average = () => {
-                analyser.getByteFrequencyData(dataArray);
-                const sum = dataArray.reduce((acc, val) => acc + val, 0);
-                const avg = sum / bufferLength;
-                return avg;
-            };
-
-            const updateCandle = () => {
-                const avg = average();
-                if (avg > 50) {
-                    candle.classList.remove('light');
-                } else {
-                    candle.classList.add('light');
-                }
-                requestAnimationFrame(updateCandle);
-            };
-
-            updateCandle();
-        })
-        .catch(function (err) {
-            console.error('Error accessing microphone:', err);
-        });
-});
+      .then(function(stream) {
+        microphone = audioContext.createMediaStreamSource(stream);
+        microphone.connect(analyzer);
+      })
+      .catch(function(err) {
+        console.error('Error accessing microphone:', err);
+      });
+  
+    function blowOutCandle() {
+      candle.classList.add('candle-off');
+      document.removeEventListener('click', blowOutCandle);
+    }
+  
+    function analyzeAudio() {
+      var frequencies = new Uint8Array(analyzer.frequencyBinCount);
+      analyzer.getByteFrequencyData(frequencies);
+      var average = getAverage(frequencies);
+  
+      if (average > 120) {
+        blowOutCandle();
+      }
+  
+      requestAnimationFrame(analyzeAudio);
+    }
+  
+    function getAverage(array) {
+      var sum = array.reduce(function(a, b) {
+        return a + b;
+      }, 0);
+      return sum / array.length;
+    }
+  
+    requestAnimationFrame(analyzeAudio);
+  });
+  

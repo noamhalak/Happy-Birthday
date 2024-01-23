@@ -1,41 +1,32 @@
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f8f8f8;
-}
-
-.greeting-card {
+.card {
     text-align: center;
     padding: 20px;
-    background-color: #fff;
+    background-color: #e3e3e3;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#cake {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .cake {
+    position: relative;
     width: 100px;
     height: 150px;
-    background-color: #e74c3c;
-    border-radius: 8px 8px 0 0;
-    position: relative;
     margin: 20px auto;
-}
-
-#candle {
-    width: 10px;
-    height: 60px;
-    background-color: #ffd700;
-    border-radius: 5px;
+    background-color: #fde6cc;
+    border-radius: 10px;
+  }
+  
+  #candle {
     position: absolute;
-    top: 10px;
+    bottom: 95px;
     left: 45px;
-    transform-origin: bottom;
-    transition: background-color 0.5s;
-}
-
-#candle.light {
-    background-color: #ff0000;
-}
+    width: 10px;
+    height: 50px;
+    background-color: #ffcd00;
+    border-radius: 5px;
+  }
+  
+  .candle-off {
+    background-color: #aaa;
+  }
+  

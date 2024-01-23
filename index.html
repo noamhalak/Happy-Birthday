@@ -1,29 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Birthday Greeting Card</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Birthday Greeting Card</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <div class="greeting-card">
+    <div class="card">
       <h1>Happy Birthday!</h1>
-      <div id="cake">
-        <div id="candle" class="light"></div>
+      <div class="cake">
+        <div id="candle"></div>
       </div>
-      <p>Blow on the microphone to turn off the candle!</p>
     </div>
 
     <script src="script.js"></script>
   </body>
 </html>
-body { display: flex; align-items: center; justify-content: center; height:
-100vh; margin: 0; background-color: #f8f8f8; } .greeting-card { text-align:
-center; padding: 20px; background-color: #fff; border-radius: 10px; box-shadow:
-0 0 10px rgba(0, 0, 0, 0.1); } #cake { width: 100px; height: 150px;
-background-color: #e74c3c; border-radius: 8px 8px 0 0; position: relative;
-margin: 20px auto; } #candle { width: 10px; height: 60px; background-color:
-#ffd700; border-radius: 5px; position: absolute; top: 10px; left: 45px;
-transform-origin: bottom; transition: background-color 0.5s; } #candle.light {
-background-color: #ff0000; }
